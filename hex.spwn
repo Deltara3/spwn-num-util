@@ -1,0 +1,42 @@
+hex = (decimal: @number) {
+    table = {
+        "10": "A",
+        "11": "B",
+        "12": "C",
+        "13": "D",
+        "14": "E",
+        "15": "F"
+    }
+
+    let hexr = []
+    let hex = []
+
+    let quotient  = $.floor(decimal / 16)
+    let remainder = decimal % 16
+
+    if remainder < 10 {
+        hexr.push(remainder as @string)
+    } else {
+        hexr.push(table[remainder as @string])
+    }
+
+    while quotient != 0 {
+        remainder = quotient % 16
+        quotient = $.floor(quotient / 16)
+        if remainder < 10 {
+            hexr.push(remainder as @string)
+        } else {
+            hexr.push(table[remainder as @string])
+        }
+    }
+
+    for i in hexr.length..0 {
+        hex.push(hexr[i])
+    }
+
+    return hex
+}
+
+return {
+    hex
+}
