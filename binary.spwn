@@ -1,0 +1,21 @@
+binary = (integer: @number) {
+    let quotient  = $.floor(integer / 2)
+    let remainder = integer % 2
+    let bitsr     = [remainder]
+    let bits      = []
+
+    while quotient != 0 {
+        bitsr.push(quotient % 2)
+        quotient  = $.floor(quotient / 2) 
+    }
+
+    for i in bitsr.length..0 {
+        bits.push(bitsr[i])
+    }
+
+    return bits
+}
+
+return {
+    binary
+}
